@@ -18,14 +18,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+
       - uses: dtolnay/rust-toolchain@stable
         with:
           targets: wasm32-unknown-unknown
+
       - uses: Swatinem/rust-cache@v2
-      - uses: jetli/wasm-pack-action@v0.4.0
-      - run: ./build.sh
+
+      - name: wasm-pack installieren
+        run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+      - name: viz nach wasm
+        run: wasm-pack build viz --release --target web --out-dir ../dist/wasm --out-name viz
+
+      - name: seiten erzeugen
+        run: cargo run --release -p site -- build
+
       - uses: actions/configure-pages@v5
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

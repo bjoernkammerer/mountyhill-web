@@ -68,6 +68,27 @@ gepflegt werden. Neue Farbe heißt: ein Eintrag in `ACCENTS` in `theme.rs`.
 | `viz/src/scenes.rs` | die fünf Szenen |
 | `viz/src/lib.rs` | Canvas-Anbindung, Renderschleife, Farbabgleich |
 
+## Domain
+
+Die Adresse steht als `DOMAIN` in `site/src/main.rs`. Der Build schreibt daraus
+`dist/CNAME`, `robots.txt` und `sitemap.xml` — bei einem Wechsel genügt es,
+die Konstante zu ändern.
+
+DNS bei Cloudflare, alle Einträge mit Proxy-Status **DNS only** (graue Wolke),
+sonst schlägt die Zertifikatsausstellung bei GitHub fehl:
+
+```
+CNAME  www   DEIN-NAME.github.io
+A      @     185.199.108.153
+A      @     185.199.109.153
+A      @     185.199.110.153
+A      @     185.199.111.153
+```
+
+Die A-Records auf die Wurzeldomäne sorgen dafür, dass auch mountyhill.com ohne
+www funktioniert — GitHub leitet dann auf die in den Repository-Einstellungen
+hinterlegte Adresse um.
+
 ## Veröffentlichen
 
 `dist/` ist ein statisches Verzeichnis. Der Workflow unter

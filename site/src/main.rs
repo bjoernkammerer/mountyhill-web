@@ -6,6 +6,8 @@ use std::error::Error;
 use std::fs;
 use std::path::{Path, PathBuf};
 
+const DOMAIN: &str = "www.mountyhill.com";
+
 fn root() -> PathBuf {
     PathBuf::from(env!("CARGO_MANIFEST_DIR"))
         .parent()
@@ -77,7 +79,21 @@ fn build() -> Result<(), Box<dyn Error>> {
     }
 
     fs::write(out.join(".nojekyll"), "")?;
-    fs::write(out.join("robots.txt"), "User-agent: *\nAllow: /\n")?;
+    fs::write(out.join("CNAME"), DOMAIN)?;
+    fs::write(
+        out.join("robots.txt"),
+        format!("User-agent: *\nAllow: /\nSitemap: https://{}/sitemap.xml\n", DOMAIN),
+    )?;
+    let pages = ["/", "/impressum/", "/datenschutz/"];
+    let mut sitemap = String::from(
+        "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n",
+    );
+    for p in pages.iter() {
+        sitemap.push_str(&format!("  <url><loc>https://{}{}</loc></url>\n", DOMAIN, p));
+    }
+    sitemap.push_str("</urlset>\n");
+    fs::write(out.join("sitemap.xml"), sitemap)?;
+    println!("  CNAME, robots.txt, sitemap.xml");
     println!("fertig in dist/");
     Ok(())
 }
