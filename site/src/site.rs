@@ -7,7 +7,7 @@ const NAV: [(&str, &str); 5] = [
     ("/#robustheit", "Robustheit"),
     ("/#maerkte", "Märkte"),
     ("/#risiko", "Risiko"),
-    ("/#ablauf", "Ablauf"),
+    ("/#ablauf", "Workflow"),
 ];
 
 pub fn shell(title: &str, description: &str, body: Markup) -> String {
@@ -193,18 +193,18 @@ fn risiko() -> Markup {
 fn ablauf() -> Markup {
     let steps = [
         ("Kurse", "Import und Prüfung"),
-        ("Merkmale", "rund 100 Größen"),
-        ("Modell", "Walk-Forward"),
-        ("Signal", "Regelwerk"),
-        ("Größe", "Risikobudget"),
-        ("Order", "Broker"),
+        ("Prüfung", "Plausibilität"),
+        ("Modell", "Training"),
+        ("Signal", "Ermittlung"),
+        ("Sizing", "Risikobudget"),
+        ("Order", "Ausführung"),
     ];
     html! {
         section id="ablauf" class="section t-stahl" data-accent="stahl" {
             div class="wrap" {
                 div class="viz-head reveal" {
                     span class="section-index" { "05" }
-                    h2 { "Ablauf" }
+                    h2 { "Workflow" }
                     p class="caption" { "Vom Kurs zur Order ohne Handgriff." }
                 }
                 ol class="pipeline" {

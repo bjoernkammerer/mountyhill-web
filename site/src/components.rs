@@ -62,7 +62,7 @@ pub fn footer() -> Markup {
             div class="footer-inner" {
                 div class="footer-brand" {
                     (lockup(34, false))
-                    p { "Systematische Kapitalanlage aus dem Siegerland." }
+                    p { "Systematic." }
                 }
                 div class="footer-cols" {
                     div {
