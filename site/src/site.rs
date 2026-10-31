@@ -286,12 +286,10 @@ pub fn impressum() -> String {
     legal(
         "Impressum",
         &[
-            ("Angaben gemäß § 5 DDG", ""),
-            ("Vertreten durch", ""),
-            ("Kontakt", "kontakt@mountyhill.de"),
-            ("Registereintrag", "Amtsgericht , HRB 00000."),
-            ("Umsatzsteuer-Identifikationsnummer", "Gemäß § 27a UStG: DE000000000."),
-            ("Haftung für Inhalte", "Für eigene Inhalte sind wir nach den allgemeinen Gesetzen verantwortlich. Eine Pflicht zur Überwachung übermittelter oder gespeicherter fremder Informationen besteht nicht."),
+            ("Angaben gemäß § 5 DDG", "Björn Kammerer, Unter dem Klingelschacht, 57074 Siegen, Deutschland."),
+            ("Kontakt", "E-Mail: kontakt@mountyhill.com"),
+            ("Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV", "Björn Kammerer, Anschrift wie oben."),
+            ("Haftung für Inhalte", "Die Inhalte dieser Seite wurden mit Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität wird keine Gewähr übernommen. Alle Darstellungen sind simuliert und stellen keine tatsächliche Wertentwicklung dar."),
             ("Haftung für Links", "Für die Inhalte verlinkter externer Seiten ist stets deren Anbieter verantwortlich."),
         ],
     )
@@ -301,7 +299,7 @@ pub fn datenschutz() -> String {
     legal(
         "Datenschutz",
         &[
-            ("Verantwortliche Stelle", ""),
+            ("Verantwortliche Stelle", "Björn Kammerer, Unter dem Klingelschacht, 57074 Siegen, Deutschland."),
             ("Umfang der Verarbeitung", "Die Seite ist statisch. Es werden keine Cookies gesetzt, keine Analysedienste eingebunden und keine Inhalte von Dritten nachgeladen. Alle Darstellungen werden lokal im Browser berechnet."),
             ("Server-Logfiles", "Der Hosting-Anbieter erhebt technisch notwendige Zugriffsdaten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO."),
             ("Kontaktaufnahme", "Bei einer Anfrage per E-Mail verarbeiten wir die übermittelten Daten ausschließlich zur Bearbeitung. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b beziehungsweise lit. f DSGVO."),
