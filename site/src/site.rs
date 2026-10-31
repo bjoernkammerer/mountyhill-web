@@ -229,8 +229,8 @@ fn kontakt() -> Markup {
                 div class="contact-inner reveal" {
                     (mark(72, false))
                     h2 { "Fragen dazu?" }
-                    a class="btn btn-primary" href="mailto:kontakt@mountyhill.de" {
-                        "kontakt@mountyhill.de"
+                    a class="btn btn-primary" href="mailto:kontakt@mountyhill.com" {
+                        "kontakt@mountyhill.com"
                     }
                     p class="disclaimer" {
                         "Alle Darstellungen auf dieser Seite sind simuliert und dienen der "
